@@ -23,7 +23,6 @@ public class DirectionListService {
         if (direction == null)
             throw new NoSuchDirectionException();
         dao.closeConnection();
-        //System.out.println(direction);
         return direction;
     }
 
@@ -33,13 +32,6 @@ public class DirectionListService {
         if (getDirection == null)
             throw new NoSuchDirectionException();
         dao.closeConnection();
-        //System.out.println(getDirection);
         return getDirection;
     }
-
-    /*public static void main(String[] args) throws MySQLException {
-        DirectionListService service = new DirectionListService();
-        Direction getDirection = new Direction("Одеса");
-        service.getByName(getDirection);
-    }*/
 }
