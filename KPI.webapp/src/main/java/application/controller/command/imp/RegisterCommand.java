@@ -20,8 +20,8 @@ public class RegisterCommand extends AbstractCommand{
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String registerResult = null;
         try {
-            //application.controller.util.Validator.checkUsername(request);
-            //application.controller.util.Validator.checkPassword(request);
+            application.controller.util.Validator.checkUsername(request);
+            application.controller.util.Validator.checkPassword(request);
             registerResult = service.registration(getUserData(request));
         } catch (BookedUsernameException | InvalidPasswordException e) {
             setErrorRequest(request, response, e.getMessage(), "/KPI_webapp_war/register");
