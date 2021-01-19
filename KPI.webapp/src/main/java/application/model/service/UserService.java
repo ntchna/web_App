@@ -13,8 +13,7 @@ public class UserService {
         else if (!user.getPassword().equals(unauthorizedUser.getPassword()))
             throw new InvalidPasswordException();
         else if (!user.isEnable()) throw new BlockedUserException();
-        dao.closeConnection();
-        System.out.println(user);
+        dao.closeConnection();        
         return user;
     }
 
@@ -26,28 +25,6 @@ public class UserService {
             dao.closeConnection();
         } else
             throw new BookedUsernameException("User with such username already exists");
-
-        System.out.println(newUser);
         return "Your registration was completed!";
     }
-
-    /*public User findByName(String username) throws NoSuchUserException, MySQLException {
-        UserDao userDao = new UserDao();
-        User user = userDao.getByName(username);
-        userDao.closeConnection();
-        if (user!= null && user.getUsername().equals(username))
-            return user;
-        else throw new NoSuchUserException("User with such username doesn`t exist");
-    }
-
-    public static void main(String[] args) throws MySQLException {
-        UserService service = new UserService();
-        User newuser = new User("admin1", "admin1");
-        service.login(newuser);
-    }
-    public static void main(String[] args) throws MySQLException {
-        UserService service = new UserService();
-        User newuser = new User("user2", "user2", "serg", "Bortnyk");
-        service.registration(newuser);
-    }*/
 }
