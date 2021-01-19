@@ -14,27 +14,15 @@ public class WeightService {
         WeightDao dao = new WeightDao();
         List<Weight> weights = dao.getAll();
         dao.closeConnection();
-        if(weights == null|| weights.size()==0) throw new EmptyListException("No weights");
-        System.out.println(weights);
+        if(weights == null|| weights.size()==0) throw new EmptyListException("No weights");        
         return weights;
     }
 
     public Weight getByName(String name) throws MySQLException {
         WeightDao dao = new WeightDao();
         Weight weight = dao.getByName(name);
-        if(weight!=null){
-            //System.out.println(weight);
+        if(weight!=null){            
             return  weight;}
         else throw new NoSuchDimensionException();
     }
-
-    /* public static void main(String[] args) throws MySQLException {
-        WeightService service = new WeightService();
-        service.getAllWaights();
-    }
-    public static void main(String[] args) throws MySQLException {
-        WeightService service = new WeightService();
-        Weight weight = new Weight("до 1 кг");
-        service.getByName(weight.getName());
-    }*/
 }
