@@ -23,7 +23,6 @@ public class DimensionService {
         DimensionDao dao = new DimensionDao();
         Dimension dimension = dao.getByName(name);
         if(dimension !=null){
-            //System.out.println(dimension);
             return dimension;}
         else throw new NoSuchDimensionException();
     }
@@ -32,19 +31,7 @@ public class DimensionService {
         DimensionDao dao = new DimensionDao();
         Dimension dimension = dao.getByName(name);
         if(dimension !=null){
-            //System.out.println(dimension);
             return dimension;}
         else throw new NoSuchDimensionException();
     }
-
-    /*public static void main(String[] args) throws MySQLException {
-        DimensionService service = new DimensionService();
-        service.allDimencions();
-    }
-
-   public static void main(String[] args) throws MySQLException {
-        DimensionService service = new DimensionService();
-        BaggageType baggageType = new BaggageType("Документи");
-        service.getByTypeName(baggageType.getName());
-   }*/
 }
